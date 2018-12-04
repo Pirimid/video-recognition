@@ -22,6 +22,7 @@ This is just a simple overview of what happens under the hood. There are few mor
 
 ## Emotion Detection 
 For emotion detection, we can use the same idea that we saw in face recognition. The only change is that instead of generating face embedding vector, we will generate facial landmarks, or key-points for face and then compute the distance between those points to find out the exact emotion of person. Below is the picture of woman with 68 landmarks detected on her face.
+
  !['LM_68'](images/LM_68points.jpg)
 
 Once we got the distnaces corresponding to each emotion,we can train a deep learning model to find out the emotion based on the distance. The key steps will be 
@@ -29,17 +30,18 @@ Once we got the distnaces corresponding to each emotion,we can train a deep lear
  2. Train deep learning model on this data. 
  3. Use face image as input and find out the landmarks, then calculate the distance and feed that into deep learning model to get the final output of emotion label. 
 
- * Usecae
+ * Usecase
   1. Customer behaviour analysis.
   2. Public behaviour analysis.
   3. Patient analysis in mental hospitals. 
   4. In office work mood analysis of employees. 
 
 ## Object Detection 
-Object detection is one of the hardest thing in computer vision, which is now easy to do, thanks to deep learning. Models like YOLO and SSDLite are so fast that object detection can be done in real time without any kind of problem. Below is the image from official YOLO paper on how it works. 
+Object detection is one of the hardest thing in computer vision, which is now easy to do, thanks to the deep learning. Models like YOLO and SSDLite are so fast that object detection can be done in real time without any kind of problem. Below is the image from official YOLO paper on how it works.
+
  !['YOLO'](images/object-detection.png)
 
- YOLO uses a grid to divide the whole image into some smaller patches. Then it tries to predict whether there is object or not and which objevct it is. Once we got lots of anchor boxes, using non-max suppression we neglect the boxes which has low probability of having any meaningful objects. The above image demonstrate that scenario quite well. 
+ YOLO uses a grid to divide the whole image into some smaller patches. Then it tries to predict whether there is object or not and which object it is. Once we got lots of anchor boxes, using non-max suppression we neglect the boxes which has low probability of having any meaningful objects. The above image demonstrate that scenario quite well. 
 
  There are other models like R-CNN, Fast-RCNN and different variants of it, but they are not quite fast and can not be used in real-time detection. 
 
